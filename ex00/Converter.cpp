@@ -1,8 +1,8 @@
 #include "Converter.hpp"
 
-ScalarConverter::ScalarConverter() {}
+ScalarConverter::ScalarConverter(void) {}
 
-ScalarConverter::~ScalarConverter() {}
+ScalarConverter::~ScalarConverter(void) {}
 
 ScalarConverter::ScalarConverter(const ScalarConverter &other) {
     *this = other;
@@ -66,13 +66,12 @@ void ScalarConverter::convert(const string &input) {
 char ScalarConverter::toChar(int value) {
     char c = static_cast<char>(value);
 
-    if (value > numeric_limits<char>::max() || value < numeric_limits<char>::min()) {
+    if (value > numeric_limits<char>::max() || value < numeric_limits<char>::min())
         cout << "char: impossible" << endl;
-    } else if (!isDisplayableChar(c)) {
+    else if (!isDisplayableChar(c))
         cout << "char: Non displayable" << endl;
-    } else {
+    else
         cout << "char: '" << c << "'" << endl;
-    }
 
     return c;
 }

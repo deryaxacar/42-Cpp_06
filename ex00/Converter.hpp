@@ -1,3 +1,4 @@
+#pragma once
 
 #include <iostream>
 #include <cmath>
@@ -12,10 +13,10 @@ using std::numeric_limits;
 class ScalarConverter{
     
     private:
-        ScalarConverter();
+        ScalarConverter(void);
         ScalarConverter(const ScalarConverter &other);
         ScalarConverter &operator=(const ScalarConverter &other);
-        ~ScalarConverter();
+        ~ScalarConverter(void);
 
     public:
         static bool isDisplayableChar(int value);

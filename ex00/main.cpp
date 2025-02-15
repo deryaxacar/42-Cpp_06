@@ -4,7 +4,7 @@ int main(int ac, char* av[])
 {
     if (ac != 2)
     {
-        std::cout << "Error: Argument Error!" << std::endl;
+        cout << "Error: Argument Error!" << endl;
         return 1;
     }
     ScalarConverter::convert(av[1]);

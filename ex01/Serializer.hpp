@@ -15,7 +15,7 @@ class Serializer {
         Serializer(void);
         ~Serializer(void);
         Serializer(const Serializer& copy);
-        Serializer &operator=(const Serializer& copy);
+        Serializer &operator=(const Serializer& other);
     public:
         static uintptr_t serialize(Data* ptr);
         static Data* deserialize(uintptr_t raw);
