@@ -9,39 +9,56 @@ ScalarConverter::ScalarConverter(const ScalarConverter &other) {
 }
 
 ScalarConverter& ScalarConverter::operator=(const ScalarConverter &other) {
+    (void)other;
     return *this;
 }
 
 bool ScalarConverter::isDisplayableChar(int value) {
-    return ((value >= 32) && (value <= 126));
+    return (value >= 32 && value <= 126);
 }
 
 void ScalarConverter::convert(const string &input) {
     try {
-        int intValue = std::stoi(input);
-        char c = toChar(intValue);
-    } catch (const exception &e) {
+        if (input == "nan" || input == "-nan" || input == "nanf" || input == "-nanf") {
+            cout << "char: impossible" << endl;
+            cout << "int: impossible" << endl;
+            cout << "float: nanf" << endl;
+            cout << "double: nan" << endl;
+            return;
+        }
+        if (input == "inf" || input == "-inf" || input == "inff" || input == "-inff") {
+            cout << "char: impossible" << endl;
+            cout << "int: impossible" << endl;
+            cout << "float: " << input << "f" << endl;
+            cout << "double: " << input << endl;
+            return;
+        }
+
+        int intValue = atoi(input.c_str());
+        toChar(intValue);
+
+    } catch (...) {
         cout << "char: impossible" << endl;
     }
 
     try {
-        int i = toInt(std::stoi(input));
+        int i = atoi(input.c_str());
         cout << "int: " << i << endl;
-    } catch (const exception &e) {
+    } catch (...) {
         cout << "int: impossible" << endl;
     }
 
     try {
-        float f = toFloat(std::stof(input));
+        float f = atof(input.c_str());
         cout << "float: " << f << (f == static_cast<int>(f) ? ".0f" : "f") << endl;
-    } catch (const exception &e) {
+    } catch (...) {
         cout << "float: impossible" << endl;
     }
 
     try {
-        double d = toDouble(std::stod(input));
+        double d = atof(input.c_str());
         cout << "double: " << d << (d == static_cast<int>(d) ? ".0" : "") << endl;
-    } catch (const exception &e) {
+    } catch (...) {
         cout << "double: impossible" << endl;
     }
 }
@@ -49,29 +66,37 @@ void ScalarConverter::convert(const string &input) {
 char ScalarConverter::toChar(int value) {
     char c = static_cast<char>(value);
 
-    if (!isDisplayableChar(c))
+    if (value > numeric_limits<char>::max() || value < numeric_limits<char>::min()) {
+        cout << "char: impossible" << endl;
+    } else if (!isDisplayableChar(c)) {
         cout << "char: Non displayable" << endl;
-    else
+    } else {
         cout << "char: '" << c << "'" << endl;
+    }
+
     return c;
 }
 
 int ScalarConverter::toInt(int value) {
-    return (value);
+    return value;
 }
 
 float ScalarConverter::toFloat(float value) {
-    if (std::isnan(value))
-        return NAN;
-    else if (std::isinf(value))
-        return ((value > 0) ? INFINITY : -INFINITY);
-    return (value);
+    if (value != value)
+        return numeric_limits<float>::quiet_NaN();
+    else if (value == numeric_limits<float>::infinity())
+        return numeric_limits<float>::infinity();
+    else if (value == -numeric_limits<float>::infinity())
+        return -numeric_limits<float>::infinity();
+    return value;
 }
 
 double ScalarConverter::toDouble(double value) {
-    if (std::isnan(value))
-        return NAN;
-    else if (std::isinf(value))
-        return ((value > 0) ? INFINITY : -INFINITY);
-    return (value);
+    if (value != value)
+        return numeric_limits<double>::quiet_NaN();
+    else if (value == numeric_limits<double>::infinity())
+        return numeric_limits<double>::infinity();
+    else if (value == -numeric_limits<double>::infinity())
+        return -numeric_limits<double>::infinity();
+    return value;
 }

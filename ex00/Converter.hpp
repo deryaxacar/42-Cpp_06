@@ -1,11 +1,13 @@
-#include <string>
+
 #include <iostream>
 #include <cmath>
+#include <cstdlib>
+#include <limits>
 
 using std::string;
-using std::exception;
 using std::cout;
 using std::endl;
+using std::numeric_limits;
 
 class ScalarConverter{
     
