@@ -13,7 +13,9 @@ Bu modülde, C++'ta farklı cast türlerini öğrenerek tür dönüşümlerinin 
   - [Static Cast Nedir?](#static-cast-nedir)
   - [Numeric Limits Nedir?](#numeric-limits-nedir)
 - [Ex01 - Serialization](#serialization)
+  - [Ex01 - Gereksinimleri](#ex01-gereksinimleri)
 - [Ex02 - Identify real type](#identify-real-type)
+  - [Ex02 - Gereksinimleri](#ex02-gereksinimleri)
 
 ---
 
