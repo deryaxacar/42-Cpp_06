@@ -14,8 +14,10 @@ Bu modülde, C++'ta farklı cast türlerini öğrenerek tür dönüşümlerinin 
   - [Numeric Limits Nedir?](#numeric-limits-nedir)
 - [Ex01 - Serialization](#serialization)
   - [Ex01 - Gereksinimleri](#ex01-gereksinimleri)
+  - [Reinterpret Cast Nedir?](#reinterpret-cast-nedir)
 - [Ex02 - Identify real type](#identify-real-type)
   - [Ex02 - Gereksinimleri](#ex02-gereksinimleri)
+  - [Dynamic Cast Nedir?](#dynamic-cast-nedir)
 
 ---
 
