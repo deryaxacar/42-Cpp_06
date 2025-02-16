@@ -38,14 +38,19 @@ Bu egzersizde, C++'ta bir sınıf `ScalarConverter` oluşturacak ve bu sınıfı
 - **Dönüşüm Türleri:**
 
   - `char`: Verilen değerin karakter türüne dönüştürülmesi.
+
   - `int`: Verilen değerin tam sayı türüne dönüştürülmesi.
+
   - `float`: Verilen değerin kayan nokta türüne (`float`) dönüştürülmesi.
+
   - `double`: Verilen değerin çift hassasiyetli kayan nokta türüne (`double`) dönüştürülmesi.
 
 - **Özel Durumlar:**
 
   - **Char için:** Geçerli olmayan karakterler (görüntülenebilir olmayanlar) için bir hata mesajı gösterilecek.
+
   - **Pseudo literals:** `-inff`, `+inff`, `nanf` gibi değerler de işlenmeli.
+
   - **Dönüşüm Hataları:** Eğer dönüşüm mümkün değilse veya taşma durumu söz konusuysa, kullanıcıya bilgi veren bir mesaj yazdırılmalıdır.
 
 - **İzin verilen Fonksiyonlar:**
@@ -82,7 +87,42 @@ Bu egzersizde, C++'ta bir sınıf `ScalarConverter` oluşturacak ve bu sınıfı
 <a name="static-cast-nedir"></a>
 ### Static Cast Nedir?
 
+`static_cast` C++ dilinde kullanılan bir tür dönüşüm operatörüdür. Derleme zamanında, türler arasında güvenli dönüşümler yapılmasını sağlar ve özellikle temel türler arasında dönüşümde kullanılır. `static_cast`, derleyici tarafından kontrol edilen ve hatasız dönüşümler sağlar, fakat yanlış bir dönüşüm yapılması durumunda derleme hatası alınır.
 
+**Temel Özellikler:**
+
+- **Derleme Zamanı Dönüşümü:** `static_cast`, dönüşüm işlemlerini derleme zamanında gerçekleştirir. Bu, dönüşümün tür güvenliğini sağlamak anlamına gelir ve hata yapma olasılığını azaltır.
+
+- **Basit Dönüşümler:** Genellikle türler arasındaki temel dönüşümleri (örneğin, `int`'ten `float`'a, `double`'dan `int`'e) yapmak için kullanılır.
+
+- **Veri Kaybı:** Dönüşüm sırasında veri kaybı yaşanabilir (örneğin, `double`'ı `int`'e dönüştürmek). Bu nedenle dikkatli kullanmak gerekir.
+
+**Kullanım Alanları:**
+
+- **Temel Veri Türleri:** `static_cast`, genellikle `char` ve `int` gibi temel veri türleri arasında dönüşüm yapmak için kullanılır.
+
+- **Sınıflar Arasında Dönüşüm:** Aynı sınıf hiyerarşisine sahip nesneler arasında dönüşüm yapmak için de kullanılabilir. Ancak, bu durumda daha dikkatli olmak gerekmektedir.
+
+**Örnek Kullanım:**
+
+- ```cpp
+    char ScalarConverter::toChar(int value) {
+      // int türündeki 'value' değişkenini char türüne dönüştür
+      char c = static_cast<char>(value);
+  
+      // Eğer değer char aralığının dışındaysa, dönüştürme mümkün değil
+      if (value > numeric_limits<char>::max() || value < numeric_limits<char>::min())
+          cout << "char: impossible" << endl;
+      // Eğer karakter ekranda gösterilebilir bir karakter değilse
+      else if (!isDisplayableChar(c))
+          cout << "char: Non displayable" << endl;
+      // Geçerli ve gösterilebilir bir karakterse, ekrana yazdır
+      else
+          cout << "char: '" << c << "'" << endl;
+      return c;
+  }
+  ```
+  
 ---
 
 Bu README dosyası Derya ACAR tarafından hazırlanmıştır.
