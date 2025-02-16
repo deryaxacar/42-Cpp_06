@@ -11,6 +11,7 @@ Bu modülde, C++'ta farklı cast türlerini öğrenerek tür dönüşümlerinin 
 - [Ex00 - Conversion of scalar types](#conversion-of-scalar-types)
   - [Ex00 - Gereksinimleri](#ex00-gereksinimleri)
   - [Static Cast Nedir?](#static-cast-nedir)
+  - [Numeric Limits Nedir?](#numeric-limits-nedir)
 
 ---
 
@@ -122,7 +123,44 @@ Bu egzersizde, C++'ta bir sınıf `ScalarConverter` oluşturacak ve bu sınıfı
       return c;
   }
   ```
-  
+
+---
+
+
+<a name="numeric-limits-nedir"></a>
+### Numeric Limits Nedir?
+
+`numeric_limits`, sayı türlerinin sınırlarını sorgulamak için kullanılan bir şablon sınıfıdır. Bu sınıf, bir türün alabileceği en küçük ve en büyük değeri, hassasiyet gibi özellikleri verir. Özellikle sayısal hesaplamalarda taşma (overflow) veya hassasiyet kontrolü için kullanılır.
+
+**Temel Özellikleri:**
+
+- **`Minimum` ve `Maksimum` Değerler**: numeric_limits sınıfı, belirli bir türün alabileceği en küçük ve en büyük değerleri döndüren metotlar sunar.
+
+- `std::numeric_limits<T>::min()` — Tür T'nin alabileceği en küçük değeri verir.
+
+- `std::numeric_limits<T>::max()` — Tür T'nin alabileceği en büyük değeri verir.
+
+- **Epsilon**: Sayısal hassasiyetle ilgili bir değer sağlar. Örneğin, `std::numeric_limits<float>::epsilon()` fonksiyonu, float türünün en küçük pozitif farkını verir.
+
+- **Düzenlilik ve Taşma**: Sayısal türlerin taşma (overflow) ve sıfırla bölme gibi özel durumlar için özelliklere de erişilebilir.
+
+**Örnek Kullanım:**
+
+```cpp
+#include <iostream>
+#include <limits>
+using namespace std;
+
+int main() {
+    cout << "int min: " << numeric_limits<int>::min() << endl;
+    cout << "int max: " << numeric_limits<int>::max() << endl;
+    cout << "float epsilon: " << numeric_limits<float>::epsilon() << endl;
+
+    return 0;
+}
+
+```
+
 ---
 
 Bu README dosyası Derya ACAR tarafından hazırlanmıştır.
