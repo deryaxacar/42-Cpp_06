@@ -136,9 +136,9 @@ Bu egzersizde, C++'ta bir sınıf `ScalarConverter` oluşturacak ve bu sınıfı
 
 - **`Minimum` ve `Maksimum` Değerler**: numeric_limits sınıfı, belirli bir türün alabileceği en küçük ve en büyük değerleri döndüren metotlar sunar.
 
-- `std::numeric_limits<T>::min()` — Tür T'nin alabileceği en küçük değeri verir.
+- `std::numeric_limits<T>::min()` — Türün alabileceği en küçük değeri verir.
 
-- `std::numeric_limits<T>::max()` — Tür T'nin alabileceği en büyük değeri verir.
+- `std::numeric_limits<T>::max()` — Türün alabileceği en büyük değeri verir.
 
 - **Epsilon**: Sayısal hassasiyetle ilgili bir değer sağlar. Örneğin, `std::numeric_limits<float>::epsilon()` fonksiyonu, float türünün en küçük pozitif farkını verir.
 
