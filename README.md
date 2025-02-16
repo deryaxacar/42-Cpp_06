@@ -149,12 +149,11 @@ Bu egzersizde, C++'ta bir sınıf `ScalarConverter` oluşturacak ve bu sınıfı
 ```cpp
 #include <iostream>
 #include <limits>
-using namespace std;
 
 int main() {
-    cout << "int min: " << numeric_limits<int>::min() << endl;
-    cout << "int max: " << numeric_limits<int>::max() << endl;
-    cout << "float epsilon: " << numeric_limits<float>::epsilon() << endl;
+    std::cout << "int min: " << std::numeric_limits<int>::min() << std::endl;
+    std::cout << "int max: " << std::numeric_limits<int>::max() << std::endl;
+    std::cout << "float epsilon: " << std::numeric_limits<float>::epsilon() << std::endl;
 
     return 0;
 }
