@@ -10,6 +10,7 @@ Bu modülde, C++'ta farklı cast türlerini öğrenerek tür dönüşümlerinin 
 ### İçindekiler 📚
 - [Ex00 - Conversion of scalar types](#conversion-of-scalar-types)
   - [Ex00 - Gereksinimleri](#ex00-gereksinimleri)
+  - [Static Cast Nedir?](#static-cast-nedir)
 
 ---
 
@@ -75,6 +76,12 @@ Bu egzersizde, C++'ta bir sınıf `ScalarConverter` oluşturacak ve bu sınıfı
     double: 42.0
 
     ```
+
+---
+
+<a name="static-cast-nedir"></a>
+### Static Cast Nedir?
+
 
 ---
 
