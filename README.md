@@ -12,6 +12,8 @@ Bu modülde, C++'ta farklı cast türlerini öğrenerek tür dönüşümlerinin 
   - [Ex00 - Gereksinimleri](#ex00-gereksinimleri)
   - [Static Cast Nedir?](#static-cast-nedir)
   - [Şablon (Template) Nedir?](#template-nedir)
+    - [Fonksiyon Şablonları (Function Templates)](#function-templates)
+    - [Sınıf Şablonları (Class Templates)](#class-templates)
   - [Numeric Limits Nedir?](#numeric-limits-nedir)
 - [Ex01 - Serialization](#serialization)
   - [Ex01 - Gereksinimleri](#ex01-gereksinimleri)
@@ -140,11 +142,12 @@ C++'da şablonlar (`templates`), farklı veri türleriyle çalışabilen genel (
 
 Şablonlar iki ana kategoriye ayrılır:
 
-- Fonksiyon Şablonları (Function Templates)
+- 1. Fonksiyon Şablonları (Function Templates)
 
-- Sınıf Şablonları (Class Templates)
+- 2. Sınıf Şablonları (Class Templates)
 
-### 1. Fonksiyon Şablonları (Function Templates)
+<a name="function-templates"></a>
+### Fonksiyon Şablonları (Function Templates)
 
 Fonksiyon şablonları, farklı türlerle çalışabilen genel fonksiyonlar yazmanızı sağlar. Örneğin, iki sayıyı toplayan bir fonksiyon yazmak istiyorsunuz, ancak bu fonksiyon hem `int` hem de `double` türleriyle çalışsın. İşte bunun için fonksiyon şablonları kullanılır.
 
@@ -188,7 +191,65 @@ Toplam (double): 6.2
 
 ---
 
+
+<a name="class-templates"></a>
+### Sınıf Şablonları (Class Templates)
+
+Sınıf şablonları, farklı türlerle çalışabilen genel sınıflar yazmanızı sağlar. Örneğin, bir dizi (array) sınıfı yazmak istiyorsunuz, ancak bu sınıf hem int hem de double türleriyle çalışsın. İşte bunun için sınıf şablonları kullanılır.
+
+**Örnek: Sınıf Şablonu**
+
+```cpp
+#include <iostream>
+
+// Sınıf şablonu tanımlanıyor
+template <typename T>
+class Box {
+private:
+    T value;
+public:
+    Box(T v) : value(v) {}
+    T getValue() const {
+        return value;
+    }
+};
+
+int main() {
+    // int türü ile kullanım
+    Box<int> intBox(123);
+    std::cout << "intBox değeri: " << intBox.getValue() << std::endl;
+
+    // double türü ile kullanım
+    Box<double> doubleBox(45.67);
+    std::cout << "doubleBox değeri: " << doubleBox.getValue() << std::endl;
+
+    return 0;
+}
+```
+
+**Çıktı:**
+
+```zsh
+intBox değeri: 123
+doubleBox değeri: 45.67
+```
+
+**Açıklama:**
+
+- `template <typename T>`, şablonun başladığını belirtir. `T`, bir tür parametresidir.
+
+- `Box<int> intBox(123);` ile `T` türü int olur.
+
+- `Box<double> doubleBox(45.67);` ile `T` türü double olur.
+
+**Not:**
+
+- **Fonksiyon Şablonları:** Farklı türlerle çalışabilen genel fonksiyonlar yazmanızı sağlar.
+
+- **Sınıf Şablonları:** Farklı türlerle çalışabilen genel sınıflar yazmanızı sağlar.
+
 ---
+
 
 <a name="numeric-limits-nedir"></a>
 ### Numeric Limits Nedir?
