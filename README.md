@@ -11,6 +11,7 @@ Bu modülde, C++'ta farklı cast türlerini öğrenerek tür dönüşümlerinin 
 - [Ex00 - Conversion of scalar types](#conversion-of-scalar-types)
   - [Ex00 - Gereksinimleri](#ex00-gereksinimleri)
   - [Static Cast Nedir?](#static-cast-nedir)
+  - [Şablon (Template) Nedir?](#template-nedir)
   - [Numeric Limits Nedir?](#numeric-limits-nedir)
 - [Ex01 - Serialization](#serialization)
   - [Ex01 - Gereksinimleri](#ex01-gereksinimleri)
@@ -132,6 +133,62 @@ Bu egzersizde, C++'ta bir sınıf `ScalarConverter` oluşturacak ve bu sınıfı
 
 ---
 
+<a name="template-nedir"></a>
+### Şablon (Template) Nedir?
+
+C++'da şablonlar (`templates`), farklı veri türleriyle çalışabilen genel (`generic`) fonksiyonlar veya sınıflar yazmanızı sağlayan bir özelliktir. Şablonlar, kodunuzu daha esnek ve yeniden kullanılabilir hale getirir. Örneğin, aynı işlemi `int`, `double`, `string` gibi farklı türlerle yapmanız gerekiyorsa, her tür için ayrı fonksiyonlar yazmak yerine tek bir şablon kullanabilirsiniz.
+
+Şablonlar iki ana kategoriye ayrılır:
+
+- Fonksiyon Şablonları (Function Templates)
+
+- Sınıf Şablonları (Class Templates)
+
+### 1. Fonksiyon Şablonları (Function Templates)
+
+Fonksiyon şablonları, farklı türlerle çalışabilen genel fonksiyonlar yazmanızı sağlar. Örneğin, iki sayıyı toplayan bir fonksiyon yazmak istiyorsunuz, ancak bu fonksiyon hem `int` hem de `double` türleriyle çalışsın. İşte bunun için fonksiyon şablonları kullanılır.
+
+**Örnek: Fonksiyon Şablonu**
+
+```cpp
+#include <iostream>
+
+// Fonksiyon şablonu tanımlanıyor
+template <typename T>
+T add(T a, T b) {
+    return a + b;
+}
+
+int main() {
+    // int türü ile kullanım
+    std::cout << "Toplam (int): " << add(3, 5) << std::endl;
+
+    // double türü ile kullanım
+    std::cout << "Toplam (double): " << add(3.5, 2.7) << std::endl;
+
+    return 0;
+}
+```
+
+**Çıktı:**
+
+```zsh
+Toplam (int): 8
+Toplam (double): 6.2
+```
+
+**Açıklama:**
+- `template <typename T>`, şablonun başladığını belirtir. `T`, bir tür parametresidir (placeholder).
+
+- `T add(T a, T b)`, `T` türünden iki parametre alır ve `T` türünden bir değer döndürür.
+
+- `add(3, 5)` çağrıldığında `T` otomatik olarak int olur.
+
+- `add(3.5, 2.7)` çağrıldığında `T` otomatik olarak double olur.
+
+---
+
+---
 
 <a name="numeric-limits-nedir"></a>
 ### Numeric Limits Nedir?
