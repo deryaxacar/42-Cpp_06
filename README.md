@@ -311,7 +311,7 @@ Bu alıştırma (Exercise 01), serileştirme (`serialization`) ve ters serileşt
 
 **2. Data Yapısını Oluştur**
 
-- `Data` adında bir yapı (`struct`) veya sınıf (`class`) oluşturun. Bu yapı boş olmamalıdır, yani en az bir veri üyesine (data member) sahip olmalıdır. Örneğin:
+- `Data` adında bir yapı (`struct`) oluşturun. Bu yapı boş olmamalıdır, yani en az bir veri üyesine (data member) sahip olmalıdır. Örneğin:
 
 - ```cpp
   struct Data {
