@@ -388,7 +388,7 @@ reinterpret_cast<YeniTür>(ifade);
 
 
 <a name="tablo"></a>
-<div align="center"> <h1>Tür Dönüştürme Operatörleri Tablo</h1> </div>
+<div align="center"> <h2>Tür Dönüştürme Operatörleri Tablo</h2> </div>
 
 | **Operatör**         | **Açıklama**  |
 |----------------------|--------------------------------------------------------------------|
