@@ -346,7 +346,9 @@ Bu alıştırma (Exercise 01), serileştirme (`serialization`) ve ters serileşt
 - **Sadece Static Üyelere Erişebilir:** `Static metodlar`, sınıf içindeki yalnızca `static` değişkenlere ve diğer static metodlara erişebilir.
 
 - **Sınıf Adı ile Çağrılır:** Bir nesne oluşturmadan, doğrudan sınıf adı üzerinden çağrılır:
-  - `SinifAdi::MetodAdi();`
+  - ```cpp
+    SinifAdi::MetodAdi();
+    ```
 
 - **this Pointer'ı Kullanamaz:** `Static metodlar` nesneye bağlı olmadığı için `this` pointer'ı içermez.
 
