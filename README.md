@@ -22,6 +22,7 @@ Bu modülde, C++'ta farklı cast türlerini öğrenerek tür dönüşümlerinin 
 - [Ex02 - Identify real type](#identify-real-type)
   - [Ex02 - Gereksinimleri](#ex02-gereksinimleri)
   - [Dynamic Cast Nedir?](#dynamic-cast-nedir)
+-[Tür Dönüştürme Operatörleri Tablo](#tablo)
 
 ---
 
@@ -353,7 +354,7 @@ Bu alıştırma (Exercise 01), serileştirme (`serialization`) ve ters serileşt
 <a name="reinterpret-cast-nedir"></a>
 ### Reinterpret Cast Nedir?
 
-`reinterpret_cast`, C++'da kullanılan bir tür dönüşüm (`type casting`) operatörüdür. Bu operatör, bir türü tamamen farklı bir türe dönüştürmek için kullanılır. Ancak, diğer tür dönüşüm operatörlerinden (örneğin, `static_cast`, `dynamic_cast`, `const_cast`) farklı olarak, `reinterpret_cast` çok daha güçlü ve tehlikeli bir operatördür. Çünkü bu operatör, derleyiciye "bu veriyi başka bir tür olarak yorumla" der ve herhangi bir tür kontrolü yapmaz.
+`reinterpret_cast`, bir tür dönüşüm (`type casting`) operatörüdür. Bu operatör, bir türü tamamen farklı bir türe dönüştürmek için kullanılır. Ancak, diğer tür dönüşüm operatörlerinden (örneğin, `static_cast`, `dynamic_cast`, `const_cast`) farklı olarak, `reinterpret_cast` çok daha güçlü ve tehlikeli bir operatördür. Çünkü bu operatör, derleyiciye "bu veriyi başka bir tür olarak yorumla" der ve herhangi bir tür kontrolü yapmaz.
 
 `reinterpret_cast` aşağıdaki durumlarda kullanılır:
 
@@ -368,6 +369,37 @@ Bu alıştırma (Exercise 01), serileştirme (`serialization`) ve ters serileşt
 - **Farklı Türler Arasında Dönüşüm:** İlişkisiz türler arasında dönüşüm yapmak.
 
   - Örneğin, bir sınıf pointer'ını tamamen farklı bir sınıf pointer'ına dönüştürmek.
+
+**Nasıl Kullanılır?**
+
+reinterpret_cast'in genel kullanım şekli şöyledir:
+
+```cpp
+reinterpret_cast<YeniTür>(ifade);
+```
+
+- **YeniTür:** Dönüştürmek istediğiniz tür.
+
+- **ifade:** Dönüştürülecek değer veya ifade.
+
+
+
+---
+
+
+<a name="tablo"></a>
+## Tür Dönüştürme Operatörleri Tablo
+
+C++'da tür dönüşümleri için kullanılan dört temel operatör bulunmaktadır. Bunlar, belirli türler arasında güvenli veya düşük seviyeli dönüşümler yapmaya olanak tanır.
+
+| **Operatör**         | **Açıklama**  |
+|----------------------|--------------------------------------------------------------------|
+| `static_cast`       | İlişkili türler arasında güvenli dönüşüm yapar (örneğin, türetilmiş sınıftan temel sınıfa). |
+| `dynamic_cast`      | Çalışma zamanında tür kontrolü yapar (yalnızca polimorfik sınıflar için kullanılır). |
+| `const_cast`        | `const` veya `volatile` niteliklerini kaldırmak için kullanılır. |
+| `reinterpret_cast`  | Tür güvenliği olmadan, herhangi bir türü başka bir türe dönüştürür. |
+
+Bu operatörler, tür dönüşümleri sırasında güvenliği artırmak ve hataları önlemek amacıyla kullanılmalıdır.
 
 ---
 
