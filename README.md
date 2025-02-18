@@ -286,4 +286,54 @@ int main() {
 
 ---
 
+<a name="serialization"></a>
+## Ex01 - Serialization
+
+Bu alıştırma (Exercise 01), serileştirme (`serialization`) ve ters serileştirme (`deserialization`) işlemlerini gerçekleştiren bir `Serializer` sınıfı yazmanızı istiyor. Ayrıca, bu sınıfın doğru çalıştığını test eden bir program yazmanız gerekiyor. 
+
+<a name="ex01-gereksinimleri"></a>
+### Ex01 - Gereksinimleri:
+
+İşte adım adım ne yapmanız gerektiği:
+
+**1. Serializer Sınıfını Oluştur**
+
+- `Serializer` sınıfı, kullanıcı tarafından hiçbir şekilde örneklenemez (`initializable`) olmamalıdır. Yani, sınıfın constructor'ları private olmalıdır.
+
+- Sınıf, iki `static` metoda sahip olmalıdır:
+
+  - `uintptr_t serialize(Data* ptr);`: Bir `Data pointer`'ını alır ve onu `uintptr_t` türüne (işaretsiz bir tamsayı türü) dönüştürür.
+
+  - `Data* deserialize(uintptr_t raw);`: Bir `uintptr_t` türündeki değeri alır ve onu `Data*` türüne (yani bir Data pointer'ına) dönüştürür.
+
+**2. Data Yapısını Oluştur**
+
+- `Data` adında bir yapı (`struct`) veya sınıf (`class`) oluşturun. Bu yapı boş olmamalıdır, yani en az bir veri üyesine (data member) sahip olmalıdır. Örneğin:
+
+- ```cpp
+  struct Data {
+      int a;
+      double b;
+  };
+  ```
+
+**3. Test Programını Yaz**
+
+- `main` fonksiyonunda aşağıdaki adımları takip edin:
+
+  - Bir `Data` nesnesi oluşturun ve içine veri atayın.
+
+  - Bu nesnenin adresini `serialize()` fonksiyonuna gönderin ve dönen `uintptr_t` değerini kaydedin.
+
+  - Bu `uintptr_t` değerini `deserialize()` fonksiyonuna gönderin ve dönen `Data*` pointer'ını kaydedin.
+
+  - Orijinal pointer ile `deserialize()` sonucu dönen pointer'ın aynı adresi gösterdiğini kontrol edin.
+
+  - Data nesnesinin veri üyelerini ekrana yazdırarak doğru çalıştığını doğrulayın.
+
+---
+
+
+---
+
 Bu README dosyası Derya ACAR tarafından hazırlanmıştır.
