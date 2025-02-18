@@ -386,16 +386,20 @@ reinterpret_cast<YeniTür>(ifade);
 
 ---
 
-
 <a name="tablo"></a>
 <div align="center"> <h2>Tür Dönüştürme Operatörleri Tablo</h2> </div>
 
-| **Operatör**         | **Açıklama**  |
-|----------------------|--------------------------------------------------------------------|
-| `static_cast`       | İlişkili türler arasında güvenli dönüşüm yapar (örneğin, türetilmiş sınıftan temel sınıfa). |
-| `dynamic_cast`      | Çalışma zamanında tür kontrolü yapar (yalnızca polimorfik sınıflar için kullanılır). |
-| `const_cast`        | `const` veya `volatile` niteliklerini kaldırmak için kullanılır. |
-| `reinterpret_cast`  | Tür güvenliği olmadan, herhangi bir türü başka bir türe dönüştürür. |
+<div align="center">
+
+| **Operatör**         | **Kullanım Amacı**  | **Örnek Kullanım** | **Ek Açıklamalar** |
+|----------------------|----------------------|----------------------|----------------------|
+| `static_cast`       | İlişkili türler arasında güvenli dönüşüm yapar | `int a = static_cast<int>(3.14);` | Türetilmiş sınıftan temel sınıfa dönüşüm için kullanılır. |
+| `dynamic_cast`      | Çalışma zamanında tür kontrolü yapar | `Base* b = dynamic_cast<Base*>(derivedPtr);` | Yalnızca polimorfik sınıflar için kullanılır. Başarısız olursa `nullptr` döner. |
+| `const_cast`        | `const` veya `volatile` niteliklerini kaldırır | `const int* p; int* q = const_cast<int*>(p);` | `const` kaldırıldığı için değişken değiştirilebilir hale gelir. |
+| `reinterpret_cast`  | Tür güvenliği olmadan dönüşüm yapar | `void* ptr = reinterpret_cast<void*>(someInt);` | İşaretçiler ve türler arasında dönüşüm yapar, ancak güvenli değildir. |
+
+</div>
+
 
 ---
 
