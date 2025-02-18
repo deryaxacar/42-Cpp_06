@@ -390,16 +390,12 @@ reinterpret_cast<YeniTür>(ifade);
 <a name="tablo"></a>
 ## Tür Dönüştürme Operatörleri Tablo
 
-C++'da tür dönüşümleri için kullanılan dört temel operatör bulunmaktadır. Bunlar, belirli türler arasında güvenli veya düşük seviyeli dönüşümler yapmaya olanak tanır.
-
 | **Operatör**         | **Açıklama**  |
 |----------------------|--------------------------------------------------------------------|
 | `static_cast`       | İlişkili türler arasında güvenli dönüşüm yapar (örneğin, türetilmiş sınıftan temel sınıfa). |
 | `dynamic_cast`      | Çalışma zamanında tür kontrolü yapar (yalnızca polimorfik sınıflar için kullanılır). |
 | `const_cast`        | `const` veya `volatile` niteliklerini kaldırmak için kullanılır. |
 | `reinterpret_cast`  | Tür güvenliği olmadan, herhangi bir türü başka bir türe dönüştürür. |
-
-Bu operatörler, tür dönüşümleri sırasında güvenliği artırmak ve hataları önlemek amacıyla kullanılmalıdır.
 
 ---
 
