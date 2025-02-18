@@ -390,13 +390,13 @@ reinterpret_cast<YeniTür>(ifade);
 
 `uintptr_t`, bir tamsayı türüdür ve işaretçileri (pointer) tutabilecek kadar büyük bir tamsayı türü olarak tanımlanır. Bu tür, `<cstdint>` veya `<stdint.h>` başlık dosyasında tanımlıdır.
 
-- Taşınabilirlik sağlar: uintptr_t, platform bağımsız bir şekilde, işaretçileri tamsayıya çevirmek için kullanılır.
+- **Taşınabilirlik sağlar:** `uintptr_t`, platform bağımsız bir şekilde, işaretçileri tamsayıya çevirmek için kullanılır.
 
-- İşaretçi genişliği ile aynıdır: uintptr_t, kullanılan sistemin işaretçi boyutuna eşittir. Örneğin:
-  - 32-bit sistemde uintptr_t 32 bit olur.
-  - 64-bit sistemde uintptr_t 64 bit olur.
+- **İşaretçi genişliği ile aynıdır:** `uintptr_t`, kullanılan sistemin işaretçi boyutuna eşittir. Örneğin:
+  - `32-bit` sistemde `uintptr_t` `32 bit` olur.
+  - `64-bit` sistemde `uintptr_t` `64 bit` olur.
 
-- İşaretçi dönüşümlerinde güvenli kullanılır: İşaretçiyi tamsayıya çevirmek ve tekrar işaretçiye dönüştürmek için kullanılır.
+- **İşaretçi dönüşümlerinde güvenli kullanılır:** İşaretçiyi tamsayıya çevirmek ve tekrar işaretçiye dönüştürmek için kullanılır.
 
 ---
 
