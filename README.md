@@ -340,9 +340,12 @@ Bu alıştırma (Exercise 01), serileştirme (`serialization`) ve ters serileşt
 `static` metodlar, belirli bir sınıfın üyesi olan ancak o sınıfın belirli bir nesnesine bağlı olmayan metodlardır. Yani, `static metodlar` nesne oluşturmadan çağrılabilir. Bunun sebebi, static metodların sınıf düzeyinde tanımlanması ve sınıfın herhangi bir örneğine (instance) bağlı olmamasıdır.
 
 - **Nesneye Bağlı Değildir:** `Static metodlar`, sınıfa ait olup belirli bir nesneye ihtiyaç duymaz.
+
 - **Sadece Static Üyelere Erişebilir:** `Static metodlar`, sınıf içindeki yalnızca `static` değişkenlere ve diğer static metodlara erişebilir.
+
 - **Sınıf Adı ile Çağrılır:** Bir nesne oluşturmadan, doğrudan sınıf adı üzerinden çağrılır:
   - `SinifAdi::MetodAdi();`
+
 - **this Pointer'ı Kullanamaz:** `Static metodlar` nesneye bağlı olmadığı için `this` pointer'ı içermez.
 
 
