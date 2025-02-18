@@ -22,7 +22,7 @@ Bu modülde, C++'ta farklı cast türlerini öğrenerek tür dönüşümlerinin 
 - [Ex02 - Identify real type](#identify-real-type)
   - [Ex02 - Gereksinimleri](#ex02-gereksinimleri)
   - [Dynamic Cast Nedir?](#dynamic-cast-nedir)
--[Tür Dönüştürme Operatörleri Tablo](#tablo)
+- [Tür Dönüştürme Operatörleri Tablo](#tablo)
 
 ---
 
