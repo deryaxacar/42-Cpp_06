@@ -402,6 +402,52 @@ reinterpret_cast<YeniTür>(ifade);
 
 ---
 
+<a name="identify-real-type"></a>
+## Ex02 - Identify real type
+
+Bu alıştırmada, yalnızca genel (public) sanal bir yıkıcıya (destructor) sahip olan bir `Base` sınıfı oluşturmalısınız. Ayrıca, `Base` sınıfından türeyen `A`, `B` ve `C` adında üç boş sınıf oluşturmalısınız. Bu dört sınıfın Ortodoks Kanonik Form'da (Orthodox Canonical Form) olması gerekmez.
+Aşağıdaki işlevleri uygulamalısınız:
+
+<a name="ex02-gereksinimleri"></a>
+## Ex02 - Gereksinimleri
+
+- `Base * generate(void);`  
+  - `A`, `B` veya `C` türünden bir nesneyi rastgele oluşturmalı ve bunu `Base` türünde bir işaretçi olarak döndürmelidir. Rastgele seçim için istediğiniz yöntemi kullanabilirsiniz.
+
+- `void identify(Base* p);`  
+  - `p` tarafından işaret edilen nesnenin gerçek türünü yazdırmalıdır (`"A"`, `"B"` veya `"C"`).
+
+- `void identify(Base& p);`  
+  - `p` değişkeninin işaret ettiği nesnenin gerçek türünü yazdırmalıdır (`"A"`, `"B"` veya `"C"`). Ancak, bu fonksiyonun içinde işaretçi (`pointer`) kullanmak yasaktır.
+
+### Yasaklı Fonksiyonlar ve Kütüphaneler
+- `std::typeinfo` kütüphanesi kullanılamaz.
+- `typeid` operatörü yasaktır.
+
+---
+
+<a name="dynamic-cast-nedir"></a>
+### Dynamic Cast Nedir?
+
+`dynamic_cast`, C++ dilinde çalışma zamanında (`runtime`) türetilmiş bir sınıfın gerçek türünü belirlemek için kullanılan bir `cast` operatörüdür. Özellikle polimorfizm (çok biçimlilik) kullanıldığında, bir `Base` sınıf işaretçisini veya referansını türetilmiş sınıflara güvenli bir şekilde dönüştürmek için kullanılır.
+
+### Kullanımı
+```cpp
+Base *basePtr = new A();
+A *aPtr = dynamic_cast<A*>(basePtr);
+if (aPtr)
+    std::cout << "Nesne A türündedir." << std::endl;
+else
+    std::cout << "Nesne A türünde değildir." << std::endl;
+```
+
+### dynamic_cast Kullanım Koşulları
+- `dynamic_cast`, yalnızca en az bir sanal (`virtual`) fonksiyona sahip sınıflarda çalışır. Bu yüzden `Base` sınıfının en az bir sanal fonksiyona sahip olması gerekir.
+- Eğer `dynamic_cast` başarısız olursa:
+  - İşaretçi (`pointer`) kullanılıyorsa, `nullptr` döndürülür.
+  - Referans (`reference`) kullanılıyorsa, `std::bad_cast` istisnası (`exception`) fırlatılır.
+
+Bu alıştırmada, `dynamic_cast` kullanarak `Base` türündeki bir işaretçi ve referansı `A`, `B` ve `C` türüne dönüştürüp, tür belirleme işlemi yapmanız gerekmektedir.
 
 ---
 
