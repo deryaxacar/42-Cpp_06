@@ -14,6 +14,7 @@ Bu modülde, C++'ta farklı cast türlerini öğrenerek tür dönüşümlerinin 
   - [Şablon (Template) Nedir?](#template-nedir)
     - [Fonksiyon Şablonları (Function Templates)](#function-templates)
     - [Sınıf Şablonları (Class Templates)](#class-templates)
+  - [NaN (Not a Number) ve Inf (Infinity) Nedir?](#nan-inf)
   - [Numeric Limits Nedir?](#numeric-limits-nedir)
 - [Ex01 - Serialization](#serialization)
   - [Ex01 - Gereksinimleri](#ex01-gereksinimleri)
@@ -253,6 +254,45 @@ doubleBox değeri: 45.67
 
 ---
 
+<a name="nan-inf"></a>
+### NaN (Not a Number) ve Inf (Infinity) Nedir?
+
+Bu iki kavram, bilgisayar bilimlerinde `IEEE 754` (kayan noktalı sayıların (floating-point numbers) bilgisayarlarda nasıl temsil edileceğini belirleyen uluslararası bir standarttır.) standardına dayalı kayan noktalı sayıların temsilinde kullanılır.
+
+**1. NaN (Not a Number)**
+
+- **Tanım:** Matematiksel olarak tanımsız işlemlerin sonucudur.
+- **Oluşma Durumları:**
+  - `0.0 / 0.0` (Sıfırın sıfıra bölünmesi)
+  - `sqrt(-1)` (Negatif bir sayının karekökü)
+  - `log(-1)` (Negatif bir sayının logaritması)
+  - `inf - inf` (İki sonsuzun farkı)
+- **Özellikler:**
+  - `NaN` eşitlik karşılaştırmalarında bile kendisiyle eşit değildir `(nan == nan → false)`.
+  - `IEEE 754` standardı, NaN değerinin belirli bir bit deseniyle temsil edilmesini sağlar.
+
+---
+
+**2. Infinity (∞ - Sonsuzluk)**
+
+- **Tanım:** Çok büyük veya çok küçük sayıların matematiksel limiti aştığında ortaya çıkar.
+- **Oluşma Durumları:**
+  - `pozitif_sayı / 0.0 → +∞` (pozitif sonsuz)
+  - `negatif_sayı / 0.0 → -∞` (negatif sonsuz)
+  - `exp(1000)` gibi büyük bir hesaplama (overflow durumu)
+- **Özellikler:**
+  - Sonsuzluk, aritmetik işlemlerle taşma (overflow) yaşandığında ortaya çıkar.
+  - `inf + 1 == inf` veya `inf * 2 == inf` gibi işlemler yine sonsuzluk üretir.
+  - `1.0 / inf == 0.0` olur.
+
+---
+
+**NaN ve Inf İçin Kod İçindeki Kullanım**
+
+- **NaN** değerleri için `"nan"`, `"-nan"`, `"nanf"`, `"-nanf"` gibi girdiler kontrol ediliyor ve `"impossible"` çıktısı veriliyor.
+- **Infinity** (sonsuzluk) değerleri için `"inf"`, `"-inf"`, `"inff"`, `"-inff"` girdileri işlenerek `float` ve `double` çıktıları basılıyor.
+
+---
 
 <a name="numeric-limits-nedir"></a>
 ### Numeric Limits Nedir?
