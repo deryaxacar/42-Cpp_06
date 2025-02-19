@@ -271,8 +271,6 @@ Bu iki kavram, bilgisayar bilimlerinde `IEEE 754` (kayan noktalı sayıların (f
   - `NaN` eşitlik karşılaştırmalarında bile kendisiyle eşit değildir `(nan == nan → false)`.
   - `IEEE 754` standardı, NaN değerinin belirli bir bit deseniyle temsil edilmesini sağlar.
 
----
-
 **2. Infinity (∞ - Sonsuzluk)**
 
 - **Tanım:** Çok büyük veya çok küçük sayıların matematiksel limiti aştığında ortaya çıkar.
