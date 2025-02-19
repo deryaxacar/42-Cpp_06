@@ -420,7 +420,7 @@ Aşağıdaki işlevleri uygulamalısınız:
 - `void identify(Base& p);`  
   - `p` değişkeninin işaret ettiği nesnenin gerçek türünü yazdırmalıdır (`"A"`, `"B"` veya `"C"`). Ancak, bu fonksiyonun içinde işaretçi (`pointer`) kullanmak yasaktır.
 
-### Yasaklı Fonksiyonlar ve Kütüphaneler
+**Yasaklı Fonksiyonlar ve Kütüphaneler**
 - `std::typeinfo` kütüphanesi kullanılamaz.
 - `typeid` operatörü yasaktır.
 
