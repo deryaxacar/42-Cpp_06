@@ -506,4 +506,5 @@ Bu alıştırmada, `dynamic_cast` kullanarak `Base` türündeki bir işaretçi v
 
 ---
 
-Bu README dosyası Derya ACAR tarafından hazırlanmıştır.
+<p align="center">© 2025 This project was created by Derya ACAR.</p>
+
