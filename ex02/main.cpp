@@ -1,7 +1,8 @@
+#include <iostream>
+#include <cstdlib>
 #include "A.hpp"
 #include "B.hpp"
 #include "C.hpp"
-#include <cstdlib>
 
 Base *generate(void)
 {
