@@ -2,8 +2,7 @@
 
 int main(int ac, char* av[])
 {
-    if (ac != 2)
-    {
+    if (ac != 2) {
         cout << "Error: Argument Error!" << endl;
         return 1;
     }

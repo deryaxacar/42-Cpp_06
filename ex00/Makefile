@@ -12,7 +12,7 @@
 
 SRC = main.cpp Converter.cpp
 OBJ = $(SRC:.cpp=.o)
-CC = c++
+CXX = c++
 RM = rm -f
 CPPFLAGS = -Wall -Wextra -Werror -std=c++98
 
@@ -21,7 +21,7 @@ NAME = convert
 all: $(NAME)
 
 $(NAME): $(OBJ)
-	@$(CC) $(CPPFLAGS) $(OBJ) -o $(NAME)
+	@$(CXX) $(CPPFLAGS) $(OBJ) -o $(NAME)
 	@echo "\033[0;32mDone\033[m"
 
 clean:
@@ -29,7 +29,7 @@ clean:
 	@echo "\033[0;34mclean\033[m"
 
 %.o: %.cpp
-	@$(CC) $(CPPFLAGS) -c $< -o $@
+	@$(CXX) $(CPPFLAGS) -c $< -o $@
 
 fclean: clean
 	@$(RM) $(NAME)

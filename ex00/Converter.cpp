@@ -26,6 +26,7 @@ void ScalarConverter::convert(const string &input) {
             cout << "double: nan" << endl;
             return;
         }
+
         if (input == "inf" || input == "-inf" || input == "inff" || input == "-inff") {
             cout << "char: impossible" << endl;
             cout << "int: impossible" << endl;
@@ -72,7 +73,6 @@ char ScalarConverter::toChar(int value) {
         cout << "char: Non displayable" << endl;
     else
         cout << "char: '" << c << "'" << endl;
-
     return c;
 }
 
